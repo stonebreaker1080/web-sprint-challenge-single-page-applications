@@ -5,10 +5,7 @@ import Restaurant from "./Restaurant";
 export default function Home(props) {
 
     const importData = data()
-    
-
-
-    
+    const { setRestaurant } = props
 
     return (
         <div className="container">
@@ -16,12 +13,14 @@ export default function Home(props) {
 
             <div className="container" >
                 {
-                    importData.map(rest => { return (
+                    importData.map((rest, index) => { return (
                         <Restaurant 
                         title= {rest.title}
                         subtitle = {rest.subtitle}
                         waitTime = {rest.waitTime}
                         deliveryFee = {rest.deliveryFee}
+                        setRestaurant = {setRestaurant}
+                        key = {index}
                         />)
                     })
                 }

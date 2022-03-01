@@ -3,31 +3,46 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch} from 'react-router-dom';
 import NavBar from "./NavBar";
 import Home from "./Home";
-import foodForm from "./foodForm";
+import OrderForm from "./OrderForm";
 
 
 const App = () => {
+
+  const initialFormValues = {
+    title: "",
+    subtitle:"",
+    waitTime: "",
+    deliveryFee: 0,
+    toppings: [],
+    sauce: ''
+}
+
+  const [ formValues, setFormValues] = useState(initialFormValues)
+
+  const updateForm = (name, value) => {
+
+    setFormValues({...formValues, [name]:value})
+
+  }
+
   return (
     
     
 
     <div>
       <NavBar />
-
-      <div className="container">
-
-
-        <h1>Lambda Eats</h1>
-        <p>You can remove this code and create your own header</p>
-      </div>
     
       <div>
           <Switch>
-          <Route path = {"/foodForm"}>
-              <foodForm />
+            <Route path = {"/OrderForm/:restaurant"}>
+                <OrderForm
+                  values = {formValues}
+                  change = {updateForm}
+                />
             </Route>
+
             <Route path = "/">
-              <Home />
+                <Home />
             </Route>
             
           </Switch>
