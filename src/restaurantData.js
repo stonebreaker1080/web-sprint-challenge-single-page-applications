@@ -13,9 +13,8 @@ const data = [
                     'Garlic Ranch': false,
                     'BBQ Sauce': false,
                     'Spinach Alfredo': false
-
-
-        }
+                },
+        substitutes: ['Gluten Free Crust $1', 'Whole Grain Crust $2']
     },
     {
         title: "sweetgreen",
@@ -25,8 +24,8 @@ const data = [
         toppings: [ 'carrots', 'walnuts'],
         sauces: {   'Ranch': false,
                     'Caesar': false
-
-        }
+                },
+        substitutes: ['premium', 'fancy kale']
         
     },
     {
@@ -38,7 +37,8 @@ const data = [
         sauces: {   'caramel': false,
                     'chocolate': false
 
-        }
+                },
+        substitutes: ['Oat Milk', 'decaf']
     }
 
 ]

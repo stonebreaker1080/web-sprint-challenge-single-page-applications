@@ -6,6 +6,8 @@ export default function Restaurant(props) {
     const { title, subtitle, waitTime, deliveryFee} = props
     const history = useHistory()
 
+    console.log(history)
+
     const routeToOrderForm = () => {
         
         history.push(`/OrderForm/${title}`)

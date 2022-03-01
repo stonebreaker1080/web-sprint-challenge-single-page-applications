@@ -5,10 +5,13 @@ import Restaurant from "./Restaurant";
 export default function Home(props) {
 
     const importData = data()
-    const { setRestaurant } = props
+    const { setRestaurant} = props
+
 
     return (
+
         <div className="container">
+            {}
             <div className="container">Banner section</div>
 
             <div className="container" >
