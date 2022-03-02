@@ -131,6 +131,7 @@ export default function OrderForm(props) {
                     name ='comment'
                     value = {values.comment}
                     onChange={onChange}
+                    id ="comment"
                     />
             </div>
 

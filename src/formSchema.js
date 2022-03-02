@@ -4,6 +4,7 @@ const formSchema = yup.object().shape({
     size: yup
         .string()
         .trim()
+        .min(1)
         .required('Size required'),        
     sauce: yup
         .string()

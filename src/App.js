@@ -26,7 +26,6 @@ const App = () => {
   }
 
   const [ formValues, setFormValues] = useState(initialFormValues)
-  const [ order, setOrder ] = useState({})
   const [ formErrors, setFormErrors] = useState(initialFormErrors)
   const [ disabled , setDisabled] = useState(false)
 
@@ -45,18 +44,13 @@ const App = () => {
   }
 
   const formSubmit = () => {
-    const newOrder = {
-      
-      toppings : formValues.toppings,
-      sauce: formValues.sauce,
-      size: formValues.size,
-      substitutes: formValues.comment,
-      quantity: formValues.quantity
-    }
-    setOrder(newOrder)
-
+    sendOrder()
   }
   
+  const sendOrder = () => {
+    console.log(formValues)
+  }
+
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
   })
