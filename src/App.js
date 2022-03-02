@@ -22,7 +22,11 @@ const App = () => {
 
   const initialFormErrors = {
     sauce: '',
-    size: ''    
+    size: '',   
+    toppings: '',
+    substitutes: '',
+    comment: '',
+    quantity: ''
   }
 
   const [ formValues, setFormValues] = useState(initialFormValues)
@@ -33,13 +37,18 @@ const App = () => {
     yup.reach(schema, name)
        .validate(value)
        .then(
-         () => setFormErrors({...formErrors, [name]:''}))
+         () => setFormErrors(
+           {...formErrors, [name]:''}
+           ))
        .catch(err => setFormErrors({...formErrors, [name]: err.errors[0]}))
   }
 
   const updateForm = (name, value) => {
     validate(name, value)
-    setFormValues({...formValues, [name]:value})
+    setFormValues({
+      ...formValues,
+       [name]:value
+      })
 
   }
 

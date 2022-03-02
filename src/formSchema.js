@@ -4,15 +4,20 @@ const formSchema = yup.object().shape({
     size: yup
         .string()
         .trim()
-        .min(1)
+        .min(1, 'Please pick a size')
         .required('Size required'),        
     sauce: yup
         .string()
         .trim()
+        .min(1, "Please pick a sauce")
         .required("Sauce required"),
     toppings: yup.array(),
     substitutes: yup.array(),
-    comment: yup.string(),
+    comment: yup
+        .string()
+        .trim()
+        .min(3,"test validation")
+        .required("test validation"),
     quantity: yup.number()
     
 })

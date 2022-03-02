@@ -42,11 +42,12 @@ export default function OrderForm(props) {
             <h2>OrderForm for {restaurantDetails.title}</h2>
             <div>Pizza Hut Image</div>
             <h3>Build your own Meal</h3>
+
             </div>
 
             <div className="container" id = "sizeField">
                 <h4>Choice of Size</h4>
-                <h5>{errors.size}</h5>
+                <div>{errors.size}</div>
                 <select
                     onChange={ onChange}
                     value = {values.size}
@@ -126,6 +127,7 @@ export default function OrderForm(props) {
 
             <div className="container" id = "commentField">
                 <h4>Special Instructions</h4>
+                <div>{errors.comment}</div>
                 <input 
                     type='text'
                     name ='comment'
