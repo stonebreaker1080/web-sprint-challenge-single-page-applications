@@ -12,7 +12,7 @@ export default function Confirm(props) {
             <div className="container">{keys.map(key => <p>{key}:{order[key]}</p>)
                 
             }
-            {axios.post("https://reqres.in/api/orders",order)}
+            {axios.post("https://reqres.in/api/orders", order)}
             </div>
         </div>
     )

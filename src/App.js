@@ -7,6 +7,7 @@ import OrderForm from "./OrderForm";
 import Confirm from "./Confirm";
 import schema from "./formSchema";
 import * as yup from 'yup';
+import axios from "axios";
 
 
 const App = () => {
@@ -55,6 +56,10 @@ const App = () => {
   }
 
   const formSubmit = () => {
+    axios.post("https://reqres.in/api/orders", {formValues})
+      .then((resp) => {
+        console.log(resp)
+      })
     sendOrder()
   }
   

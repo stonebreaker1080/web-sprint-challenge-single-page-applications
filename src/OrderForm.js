@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 // import restaurantData from "./restaurantData";
 
@@ -39,6 +40,10 @@ export default function OrderForm(props) {
     }
 
     const onSubmit = evt => {
+        axios.post("https://reqres.in/api/orders", {values})
+      .then((resp) => {
+        console.log(resp)
+      })
         evt.preventDefault()
         submit()
     }
@@ -56,7 +61,7 @@ export default function OrderForm(props) {
 
             </div>
 
-            <div className="container" id = "name-input">
+            <div className="container" >
                 <h4>Name for the order</h4>
                 <div>{errors.name}</div>
                 <input 
@@ -64,17 +69,18 @@ export default function OrderForm(props) {
                     name ='name'
                     value = {values.name}
                     onChange={onChange}
-                    id ="name"
+                    id ="name-input"
                     />
             </div>
 
-            <div className="container" id = "size-dropdown">
+            <div className="container" >
                 <h4>Choice of Size</h4>
                 <div>{errors.size}</div>
                 <select
                     onChange={ onChange}
                     value = {values.size}
                     name = "size"
+                    id = "size-dropdown"
                     >
                     <option value = ''>-</option>
                     <option value = 'S'>S</option>
@@ -148,7 +154,7 @@ export default function OrderForm(props) {
                
             </div>
 
-            <div className="container" id = "special-text">
+            <div className="container" >
                 <h4>Special Instructions</h4>
                 <div>{errors.comment}</div>
                 <input 
@@ -156,7 +162,8 @@ export default function OrderForm(props) {
                     name ='comment'
                     value = {values.comment}
                     onChange={onChange}
-                    id ="comment"
+                    id = "special-text"
+                    
                     />
             </div>
 
@@ -173,9 +180,9 @@ export default function OrderForm(props) {
             </div>
 
             <div className="container submit">
-                <NavLink to = "/Confirm">
-                    <button disabled={disabled} type="button">submit</button>
-                </NavLink>
+                {/* <NavLink to = "/Confirm"> */}
+                    <input type="submit" disabled={disabled} id="order-button"/>
+                {/* </NavLink> */}
                 
             </div>
             
