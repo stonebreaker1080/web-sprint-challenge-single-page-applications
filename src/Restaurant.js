@@ -10,7 +10,7 @@ export default function Restaurant(props) {
 
     const routeToOrderForm = () => {
         
-        history.push(`/OrderForm/${title}`)
+        history.push(`/${title}`)
       }
 
     return (
@@ -23,6 +23,7 @@ export default function Restaurant(props) {
                 <div>Wait Time {waitTime}</div>
                 <div>Delivery Fee ${deliveryFee}</div>
             </Link>    
+            <button onClick={routeToOrderForm} id="#order-pizza"></button>
         </div>
         
     )

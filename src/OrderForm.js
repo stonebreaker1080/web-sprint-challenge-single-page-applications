@@ -1,21 +1,32 @@
 import React from "react";
-import { useParams, NavLink } from "react-router-dom";
-import restaurantData from "./restaurantData";
+import { NavLink } from "react-router-dom";
+// import restaurantData from "./restaurantData";
 
 
 export default function OrderForm(props) {
     const { change, values, submit, disabled, errors } = props
-    const { restaurantID } = useParams()
+    // const { restaurantID } = useParams()
 
         
-    const restaurantDetails = restaurantData().filter(rest => 
-        {
-            return rest.title === restaurantID
-        })[0]
+    const restaurantDetails = {
+        title: "pizza",
+        subtitle:"American - Pizza",
+        waitTime: "20-30 Min",
+        deliveryFee: 5.99,
+        toppings: [ 'Pepperoni', 'Sausage', "Canadian Bacon", 'Spicy Italian Sausage',
+                    'Grilled Chicken', "Onions", 'Green Peppers', "Diced Tomatoes",
+                    'Black Olives', 'Roasted Garlic', 'Artichoke Hearts', 'Three Cheese',
+                    'Pineapple', 'Extra Cheese'],
+        sauces: {   'Original Red': false,
+                    'Garlic Ranch': false,
+                    'BBQ Sauce': false,
+                    'Spinach Alfredo': false
+                },
+        substitutes: ['Gluten Free Crust $1', 'Whole Grain Crust $2']
+    }
 
     const updateList = (name, value) => {
-        // const outputArray = 
-        
+                
         return (values[name].includes(value) ? values[name].filter(item => item !== value) : [...values[name], value])
 
     }
@@ -37,7 +48,7 @@ export default function OrderForm(props) {
 
     return (
         
-        <form className="form" onSubmit={onSubmit}>
+        <form className="form" id="pizza-form" onSubmit={onSubmit} >
             <div className="container">
             <h2>OrderForm for {restaurantDetails.title}</h2>
             <div>Pizza Hut Image</div>
@@ -45,7 +56,19 @@ export default function OrderForm(props) {
 
             </div>
 
-            <div className="container" id = "sizeField">
+            <div className="container" id = "name-input">
+                <h4>Name for the order</h4>
+                <div>{errors.name}</div>
+                <input 
+                    type='text'
+                    name ='name'
+                    value = {values.name}
+                    onChange={onChange}
+                    id ="name"
+                    />
+            </div>
+
+            <div className="container" id = "size-dropdown">
                 <h4>Choice of Size</h4>
                 <div>{errors.size}</div>
                 <select
@@ -125,7 +148,7 @@ export default function OrderForm(props) {
                
             </div>
 
-            <div className="container" id = "commentField">
+            <div className="container" id = "special-text">
                 <h4>Special Instructions</h4>
                 <div>{errors.comment}</div>
                 <input 

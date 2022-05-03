@@ -18,6 +18,11 @@ const formSchema = yup.object().shape({
         .trim()
         .min(3,"test validation")
         .required("test validation"),
+    name: yup
+        .string()
+        .trim()
+        .min(3,"name must be at least 2 characters")
+        .required("test validation"),
     quantity: yup.number()
     
 })

@@ -1,13 +1,14 @@
 import React from "react";
 import data from "./restaurantData";
 import Restaurant from "./Restaurant";
+import {NavLink} from "react-router-dom";
 
 export default function Home(props) {
 
     const importData = data()
     const { setRestaurant} = props
-
-
+    
+   
     return (
 
         <div className="container">
@@ -27,6 +28,9 @@ export default function Home(props) {
                         />)
                     })
                 }
+               <NavLink to = "/pizza">
+                    <button type="button" id="order-pizza">submit</button>
+                </NavLink>
             </div>
             
         </div>

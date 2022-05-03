@@ -12,11 +12,12 @@ import * as yup from 'yup';
 const App = () => {
 
   const initialFormValues = {
+    name: '',
     toppings: [],
     sauce: '',
     size: '',
     substitutes: [],
-    comment: '',
+    comment: ' ',
     quantity: 1
   }
 
@@ -26,7 +27,8 @@ const App = () => {
     toppings: '',
     substitutes: '',
     comment: '',
-    quantity: ''
+    quantity: '',
+    name:''
   }
 
   const [ formValues, setFormValues] = useState(initialFormValues)
@@ -72,7 +74,7 @@ const App = () => {
     
       <div>
           <Switch>
-            <Route path = {"/OrderForm/:restaurantID"}>
+            <Route path = {"/:restaurantID"}>
                 <OrderForm
                   values = {formValues}
                   change = {updateForm}
